@@ -30,9 +30,18 @@
 <link rel="preload" as="image" href="assets/img/hero.webp" media="(min-width:901px)" />
 <link rel="preload" as="image" href="assets/img/hero-sm.webp" media="(max-width:900px)" />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/mashan-subset.woff2" crossorigin />
-<link rel="stylesheet" href="styles.css?v=30" />
+<link rel="stylesheet" href="styles.css?v=31" />
 </head>
 <body>
+
+<div class="preloader" id="preloader" aria-hidden="true">
+  <div class="preloader__inner">
+    <p class="preloader__logo">王智<span>WANG ZHI</span></p>
+    <div class="preloader__bar"><i></i></div>
+    <p class="preloader__hint mono">PORTFOLIO · 2018—2024</p>
+  </div>
+</div>
+<noscript><style>.preloader{display:none}</style></noscript>
 
 <a class="skip-link" href="#work">跳到作品</a>
 
@@ -364,17 +373,22 @@
     <p class="eyebrow reveal"><span class="mono">FIG. 05</span><span class="eyebrow__sep">/</span>Let's design something</p>
     <h2 class="contact__title reveal">有设备要设计，<br />或者只是想聊聊？</h2>
     <div class="contact__rows">
-      <a class="contact__row reveal" href="mailto:wangzhi199661@126.com">
+      <div class="contact__row reveal">
         <span class="contact__label mono">Email</span>
-        <span class="contact__value">wangzhi199661@126.com</span>
-        <span class="contact__arrow">↗</span>
-      </a>
-      <a class="contact__row reveal" href="tel:15810317976">
+        <a class="contact__value" href="mailto:wangzhi199661@126.com">wangzhi199661@126.com</a>
+        <button class="contact__copy" type="button" data-copy="wangzhi199661@126.com" data-kind="邮箱">复制</button>
+        <a class="contact__arrow" href="mailto:wangzhi199661@126.com" tabindex="-1" aria-hidden="true">↗</a>
+      </div>
+      <div class="contact__row reveal">
         <span class="contact__label mono">Phone</span>
-        <span class="contact__value">158 1031 7976</span>
-        <span class="contact__arrow">↗</span>
-      </a>
+        <a class="contact__value" href="tel:15810317976">158 1031 7976</a>
+        <button class="contact__copy" type="button" data-copy="15810317976" data-kind="电话">复制</button>
+        <a class="contact__arrow" href="tel:15810317976" tabindex="-1" aria-hidden="true">↗</a>
+      </div>
     </div>
+    <button class="contact__share" id="shareBtn" type="button" hidden>
+      <span>分享这个页面</span><span class="contact__shareIcon" aria-hidden="true">↗</span>
+    </button>
   </div>
   <span class="tick tick--tr tick--light" aria-hidden="true"></span>
   <p class="contact__credit">PHOTO · PEXELS / 素材示意</p>
@@ -429,7 +443,11 @@
   </div>
 </noscript>
 
-<script src="data.js?v=30" defer></script>
-<script src="app.js?v=30" defer></script>
+<button class="to-top" id="toTop" type="button" aria-label="回到页面顶部" aria-hidden="true" tabindex="-1">↑</button>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="data.js?v=31" defer></script>
+<script src="app.js?v=31" defer></script>
 </body>
 </html>

@@ -1017,6 +1017,76 @@ body.menu-open{overflow:hidden}
   a[href^="http"]::after{content:" (" attr(href) ")";font-size:9px;color:#666}
 }
 
+
+/* ================= 预加载界面 ================= */
+.preloader{
+  position:fixed;inset:0;z-index:9999;display:grid;place-items:center;
+  background:var(--paper);color:var(--ink);
+  transition:opacity .55s var(--ease),visibility .55s var(--ease);
+  animation:preFallback 0s linear 6s forwards;
+}
+.preloader.is-done{opacity:0;visibility:hidden;pointer-events:none}
+@keyframes preFallback{to{opacity:0;visibility:hidden}}
+.preloader__inner{display:flex;flex-direction:column;align-items:center;gap:18px}
+.preloader__logo{
+  margin:0;display:flex;align-items:baseline;gap:12px;
+  font-family:var(--hei);font-size:32px;letter-spacing:.12em;
+}
+.preloader__logo span{font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:var(--ink-3)}
+.preloader__bar{width:min(180px,40vw);height:2px;background:rgba(20,22,26,.12);overflow:hidden;position:relative}
+.preloader__bar i{position:absolute;top:0;bottom:0;left:0;width:38%;background:var(--red);animation:preRun 1.1s var(--ease) infinite}
+@keyframes preRun{0%{transform:translateX(-100%)}65%,100%{transform:translateX(280%)}}
+.preloader__hint{margin:0;font-size:9px;letter-spacing:.26em;color:var(--ink-3)}
+body.is-loading{overflow:hidden}
+
+/* ================= 联系区：复制 / 分享 ================= */
+.contact__row{grid-template-columns:120px 1fr auto auto}
+.contact__value{
+  color:inherit;text-decoration:none;font-weight:500;
+  font-size:clamp(1.05rem,2.2vw,1.65rem);letter-spacing:-.01em;
+  transition:color .35s var(--ease);
+}
+.contact__value:hover{color:#FF5A6E}
+.contact__copy{
+  font-family:var(--mono);font-size:10px;letter-spacing:.16em;
+  color:rgba(255,255,255,.55);background:none;cursor:pointer;
+  border:1px solid rgba(255,255,255,.22);border-radius:100px;padding:6px 12px;
+  transition:color .3s var(--ease),border-color .3s var(--ease),background .3s var(--ease);
+}
+.contact__copy:hover{color:#fff;border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.08)}
+.contact__copy.is-done{color:#fff;border-color:var(--red);background:var(--red)}
+.contact__share{
+  margin-top:clamp(26px,3vw,38px);display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:rgba(255,255,255,.8);
+  background:none;cursor:pointer;border:1px solid rgba(255,255,255,.24);
+  border-radius:100px;padding:12px 22px;transition:all .35s var(--ease);
+}
+.contact__share:hover{color:#fff;border-color:#fff;background:rgba(255,255,255,.08)}
+.contact__shareIcon{font-size:13px}
+
+/* ================= toast ================= */
+.toast{
+  position:fixed;left:50%;bottom:32px;z-index:9000;
+  transform:translate(-50%,12px);padding:12px 22px;border-radius:100px;
+  background:var(--ink);color:var(--paper);font-size:13px;letter-spacing:.04em;
+  opacity:0;pointer-events:none;
+  transition:opacity .3s var(--ease),transform .3s var(--ease);
+  box-shadow:0 18px 40px -18px rgba(0,0,0,.5);
+}
+.toast.is-on{opacity:1;transform:translate(-50%,0)}
+
+/* ================= 回到顶部 ================= */
+.to-top{
+  position:fixed;right:clamp(16px,2.4vw,28px);bottom:clamp(16px,2.4vw,28px);z-index:80;
+  width:44px;height:44px;border-radius:50%;border:1px solid var(--line);
+  background:rgba(253,253,251,.92);color:var(--ink);font-size:17px;line-height:1;
+  cursor:pointer;backdrop-filter:blur(10px);
+  opacity:0;transform:translateY(10px);pointer-events:none;
+  transition:opacity .35s var(--ease),transform .35s var(--ease),background .35s var(--ease);
+}
+.to-top.is-on{opacity:1;transform:none;pointer-events:auto}
+.to-top:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
 /* =========================================================
    RESPONSIVE
    ========================================================= */
@@ -1082,6 +1152,8 @@ body.menu-open{overflow:hidden}
   .hero__title{letter-spacing:-.03em}
   /* 联系区：保持桌面的三列（标签 / 值 / 箭头） */
   .contact__row{grid-template-columns:56px 1fr auto;gap:10px}
+  .contact__arrow{display:none}
+  .contact__copy{font-size:9px;padding:5px 10px;letter-spacing:.08em}
   .contact__label{grid-column:auto;font-size:9.5px}
   .contact__value{grid-column:auto;font-size:15px;letter-spacing:-.01em}
   .contact__arrow{grid-row:auto;grid-column:auto;font-size:18px}

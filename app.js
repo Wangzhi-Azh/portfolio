@@ -71,7 +71,129 @@
     nodes.forEach((n) => io.observe(n));
   };
 
-  revealAll($$('.reveal'));
+  /* ---- 预加载遮罩：首屏字体与主图就绪后淡出，最多等 2.6 秒 ---- */
+  const startReveals = () => revealAll($$('.reveal'));
+  const preloader = $('#preloader');
+  const heroImg = $('.hero__frame img');
+  const heroReady = new Promise((resolve) => {
+    if (!heroImg || heroImg.complete) return resolve();
+    heroImg.addEventListener('load', resolve, { once: true });
+    heroImg.addEventListener('error', resolve, { once: true });
+  });
+  const fontsReady = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
+  const minShow = new Promise((r) => window.setTimeout(r, 320));
+  const hardCap = new Promise((r) => window.setTimeout(r, 2600));
+
+  const dismissPreloader = () => {
+    if (!preloader || preloader.dataset.done) return;
+    preloader.dataset.done = '1';
+    document.body.classList.remove('is-loading');
+    preloader.classList.add('is-done');
+    window.setTimeout(() => preloader.remove(), 700);
+    startReveals();
+  };
+
+  if (preloader) {
+    document.body.classList.add('is-loading');
+    Promise.race([Promise.all([minShow, fontsReady, heroReady]), hardCap]).then(dismissPreloader);
+  } else {
+    startReveals();
+  }
+
+  /* ---- 轻提示 ---- */
+  const toast = $('#toast');
+  let toastTimer;
+  const showToast = (msg) => {
+    if (!toast) return;
+    toast.textContent = msg;
+    toast.classList.add('is-on');
+    window.clearTimeout(toastTimer);
+    toastTimer = window.setTimeout(() => toast.classList.remove('is-on'), 1900);
+  };
+
+  /* ---- 复制邮箱 / 电话 ---- */
+  const copyText = async (text) => {
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+        return true;
+      }
+    } catch (err) { /* 落到下面的兜底方案 */ }
+    try {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      const ok = document.execCommand('copy');
+      ta.remove();
+      return ok;
+    } catch (err) {
+      return false;
+    }
+  };
+
+  $$('.contact__copy').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const value = btn.dataset.copy || '';
+      const ok = await copyText(value);
+      if (!ok) {
+        // 兜底：把地址选中，用户可直接 Ctrl+C
+        const valueEl = btn.closest('.contact__row');
+        const target = valueEl && valueEl.querySelector('.contact__value');
+        if (target && window.getSelection) {
+          const range = document.createRange();
+          range.selectNodeContents(target);
+          const sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+        }
+        showToast('已选中，按 Ctrl+C 复制');
+        return;
+      }
+      showToast(`${btn.dataset.kind || '内容'}已复制：${value}`);
+      btn.textContent = '已复制';
+      btn.classList.add('is-done');
+      window.setTimeout(() => {
+        btn.textContent = '复制';
+        btn.classList.remove('is-done');
+      }, 1600);
+    });
+  });
+
+  /* ---- 分享（仅支持的设备显示） ---- */
+  const shareBtn = $('#shareBtn');
+  if (shareBtn && navigator.share) {
+    shareBtn.hidden = false;
+    shareBtn.addEventListener('click', () => {
+      navigator.share({
+        title: document.title,
+        text: '王智 · 工业设计作品集',
+        url: window.location.origin + window.location.pathname,
+      }).catch(() => {});
+    });
+  }
+
+  /* ---- 回到顶部 ---- */
+  const toTop = $('#toTop');
+  if (toTop) {
+    let topOn = false;
+    const syncTop = () => {
+      const should = window.scrollY > window.innerHeight * 1.6;
+      if (should === topOn) return;
+      topOn = should;
+      toTop.classList.toggle('is-on', should);
+      toTop.tabIndex = should ? 0 : -1;
+      toTop.setAttribute('aria-hidden', String(!should));
+    };
+    window.addEventListener('scroll', syncTop, { passive: true });
+    syncTop();
+    toTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: prefersReduced ? 'auto' : 'smooth' });
+    });
+  }
 
   /* ---------------------------------------------------------
      3. 数字滚动
