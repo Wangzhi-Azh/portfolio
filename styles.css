@@ -12,8 +12,6 @@
   --ink-2:#4C5059;
   --ink-3:#73777F;
   --red:#C8102E;
-  --red-deep:#9E0A22;
-  --blue:#1B3EA8;
   --dark:#0E1013;
   --dark-2:#15181D;
   --line:rgba(20,22,26,.13);
@@ -38,7 +36,6 @@
   --lh-lead:1.95;
   --c-body:#4C5059;
   --c-sub:#73777F;
-  --c-label:#8B8F98;
 
   /* ---- layout ---- */
   --container:1320px;
@@ -48,6 +45,10 @@
 }
 
 *,*::before,*::after{box-sizing:border-box}
+/* 仅屏幕阅读器可见 */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+  clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
+
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{
   margin:0;background:var(--paper);color:var(--ink);
@@ -365,7 +366,6 @@ body.menu-open .burger span:nth-child(2){transform:translateY(-4px) rotate(-45de
 .card__media img{width:100%;height:100%;object-fit:cover;transition:transform 1.05s var(--ease)}
 .card__media picture,.hero__frame picture,.feat__media picture{display:block;width:100%;height:100%}
 .card--ui .card__media{background:#0B0D10}
-.card:hover .card__media img{transform:scale(1.045)}
 .card__overlay{
   position:absolute;inset:0;background:linear-gradient(to top,rgba(14,16,19,.55),transparent 55%);
   opacity:0;transition:opacity .5s var(--ease);
@@ -573,7 +573,6 @@ body.menu-open .burger span:nth-child(2){transform:translateY(-4px) rotate(-45de
 }
 /* 卡片图铺满整个画框，不留白边 */
 .card__media img,
-.card--contain .card__media img,
 .card--ui .card__media img{
   object-fit:cover;
   padding:0;
@@ -1081,7 +1080,6 @@ body.menu-open{overflow:hidden}
   .cap__media{width:100%}
   .cap__media img{aspect-ratio:16/10;height:auto}
   .hero__title{letter-spacing:-.03em}
-  .hero__vert{display:none}
   /* 联系区：保持桌面的三列（标签 / 值 / 箭头） */
   .contact__row{grid-template-columns:56px 1fr auto;gap:10px}
   .contact__label{grid-column:auto;font-size:9.5px}

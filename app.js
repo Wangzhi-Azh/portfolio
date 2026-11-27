@@ -119,7 +119,6 @@
      4. 作品渲染
      --------------------------------------------------------- */
   const projectIndex = new Map(PROJECTS.map((p, i) => [p.id, i]));
-  const isContained = (cat) => cat === 'agv' || cat === 'ui';
 
   const mediaAttrs = (p, src, cls) =>
     `src="${src}" alt="${p.title}" width="${p.coverW || 1600}" height="${p.coverH || 1200}" ` +
@@ -159,10 +158,11 @@
 
   const gridEl = $('#grid');
   const filtersEl = $('#filters');
+  const filterStatus = $('#filterStatus');
 
   if (gridEl) {
     gridEl.innerHTML = PROJECTS.map((p) => {
-      const mods = [isContained(p.cat) ? 'card--contain' : '', p.cat === 'ui' ? 'card--ui' : ''].join(' ');
+      const mods = p.cat === 'ui' ? 'card--ui' : '';
       return `
       <article class="card${mods ? ' ' + mods : ''}" data-cat="${p.cat}" data-project="${p.id}"
                tabindex="0" role="button" aria-haspopup="dialog"
@@ -215,6 +215,8 @@
       $$('.card', gridEl).forEach((card) => {
         card.classList.toggle('is-hidden', cat !== 'all' && card.dataset.cat !== cat);
       });
+      const shown = $$('.card', gridEl).filter((c) => !c.classList.contains('is-hidden')).length;
+      if (filterStatus) filterStatus.textContent = `已显示 ${shown} 组作品`;
     });
   }
 
