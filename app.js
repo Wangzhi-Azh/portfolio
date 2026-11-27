@@ -21,6 +21,7 @@
   const pad = (n) => String(n).padStart(2, '0');
   const imgUrl = (name) => `assets/img/${name}.webp`;
   const thumbUrl = (name) => `assets/thumb/${name}.webp`;
+  const thumbSmUrl = (name) => `assets/thumb-sm/${name}.webp`;
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const supportsIO = 'IntersectionObserver' in window;
 
@@ -122,7 +123,7 @@
 
   const mediaAttrs = (p, src, cls) =>
     `src="${src}" alt="${p.title}" width="${p.coverW || 1600}" height="${p.coverH || 1200}" ` +
-    `class="${cls}" loading="lazy"` +
+    `class="${cls}" loading="lazy" decoding="async"` +
     (p.pos ? ` style="object-position:${p.pos}"` : '');
 
   const featuredEl = $('#featured');
@@ -164,7 +165,10 @@
                tabindex="0" role="button" aria-haspopup="dialog"
                aria-label="打开 ${p.title} 图集，共 ${p.images.length} 张">
         <div class="card__media">
-          <img ${mediaAttrs(p, thumbUrl(p.cover), 'card__img')} />
+          <picture>
+            <source media="(max-width:560px)" srcset="${thumbSmUrl(p.cover)}" />
+            <img ${mediaAttrs(p, thumbUrl(p.cover), 'card__img')} />
+          </picture>
           <span class="card__overlay" aria-hidden="true"></span>
           <span class="card__count" aria-hidden="true">${p.images.length} 图</span>
         </div>
