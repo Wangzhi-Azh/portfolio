@@ -1,0 +1,643 @@
+window.PORTFOLIO = {
+  "categories": [
+    {
+      "id": "all",
+      "label": "全部作品",
+      "short": "全部"
+    },
+    {
+      "id": "agv",
+      "label": "AGV / 车体外观",
+      "short": "外观"
+    },
+    {
+      "id": "render",
+      "label": "系统与场景效果图",
+      "short": "效果图"
+    },
+    {
+      "id": "ui",
+      "label": "监控界面",
+      "short": "界面"
+    },
+    {
+      "id": "process",
+      "label": "方案与设计过程",
+      "short": "方案"
+    }
+  ],
+  "projects": [
+    {
+      "id": "huading-2",
+      "title": "华鼎五洲 AGV 外形优化再设计",
+      "subtitle": "AGV Exterior Redesign",
+      "cat": "agv",
+      "featured": true,
+      "year": "2019",
+      "desc": "以现有 AGV 的外形为基础，进行进一步的外形优化设计。从人机工程学分析、多方案比较，到使用环境、材料与安装方式的思考，再到配色与细节的逐层深化，完整呈现一次外观迭代的设计推演过程。",
+      "tags": [
+        "人机工程",
+        "方案比选",
+        "配色深化",
+        "量产落地"
+      ],
+      "cover": "s09_05",
+      "images": [
+        "s09_05",
+        "s09_06",
+        "s09_07",
+        "s09_08",
+        "s09_10",
+        "s09_11",
+        "s09_03",
+        "s09_02",
+        "s08_04",
+        "s08_05",
+        "s09_16",
+        "s09_14",
+        "s09_17",
+        "s08_02"
+      ],
+      "coverW": 1800,
+      "coverH": 1598
+    },
+    {
+      "id": "baosheng",
+      "title": "宝胜电缆 AGV 外观设计",
+      "subtitle": "Baosheng Cable AGV",
+      "cat": "agv",
+      "featured": true,
+      "year": "2019",
+      "desc": "参与该车车头外观设计，着重思考与设计了该车门架和防撞保护的外形结构，在保证结构与装配可行性的前提下，让车头形态更具辨识度与整体感。",
+      "tags": [
+        "车头造型",
+        "门架结构",
+        "防撞保护"
+      ],
+      "cover": "s07_03",
+      "images": [
+        "s07_03",
+        "s07_04",
+        "s07_05",
+        "s07_06",
+        "s07_07"
+      ],
+      "coverW": 1800,
+      "coverH": 1424
+    },
+    {
+      "id": "mengda",
+      "title": "蒙大化工库房自动化物流系统",
+      "subtitle": "Material Handling System Rendering",
+      "cat": "render",
+      "featured": true,
+      "year": "2020",
+      "desc": "库房自动化物流系统的三维建模与效果图呈现。以窄巷道堆垛、货架阵列与输送线为核心，通过俯视与轴测视角，清晰表达系统布局、货物单元与作业动线。",
+      "tags": [
+        "立体库",
+        "窄巷道",
+        "系统布局"
+      ],
+      "cover": "s15_02",
+      "images": [
+        "s15_02",
+        "s15_03",
+        "s15_04",
+        "s15_05",
+        "s15_06",
+        "s15_07",
+        "s14_03",
+        "s14_04",
+        "s14_05",
+        "s17_07"
+      ],
+      "coverW": 1024,
+      "coverH": 821
+    },
+    {
+      "id": "hospital",
+      "title": "医院站点外观设计",
+      "subtitle": "Hospital Station · Design Patent",
+      "cat": "agv",
+      "featured": true,
+      "year": "2021",
+      "desc": "面向医院场景的物流站点外观设计。以洁净、亲和、易消毒为出发点，弱化设备的机械感，塑造适合医疗环境的产品形象，该设计已获得外观设计专利。",
+      "tags": [
+        "医疗场景",
+        "外观专利",
+        "人机交互"
+      ],
+      "cover": "s30_05",
+      "images": [
+        "s30_05",
+        "s30_06"
+      ],
+      "coverW": 1800,
+      "coverH": 1011
+    },
+    {
+      "id": "swisslog",
+      "title": "瑞仕格观光 AGV 外形设计",
+      "subtitle": "Swisslog Sightseeing AGV",
+      "cat": "agv",
+      "year": "2019",
+      "desc": "面向观光场景的 AGV 外形设计。以通透的环抱式车身与柔和的曲面转折，让工业底盘具备面向公众的亲和力，同时保留检修与装配的可达性。",
+      "tags": [
+        "观光场景",
+        "曲面造型",
+        "CMF"
+      ],
+      "cover": "s10_04",
+      "images": [
+        "s10_04",
+        "s10_02",
+        "s10_03",
+        "s10_05",
+        "s10_06",
+        "s10_07"
+      ],
+      "coverW": 1800,
+      "coverH": 1424
+    },
+    {
+      "id": "trt",
+      "title": "同仁堂生产车间码垛输送系统方案",
+      "subtitle": "Tongrentang Palletizing & Conveying",
+      "cat": "render",
+      "year": "2019",
+      "desc": "自入职以来投入同仁堂大兴物流中心物流设备及系统集成项目，按照二维图纸绘制生产车间的三维模型及渲染图，用于方案汇报与系统集成沟通。",
+      "tags": [
+        "二维转三维",
+        "码垛输送",
+        "系统集成"
+      ],
+      "cover": "s11_03",
+      "images": [
+        "s11_03",
+        "s11_04"
+      ],
+      "coverW": 1800,
+      "coverH": 1155
+    },
+    {
+      "id": "chongqing",
+      "title": "重庆燃油项目等温间进出料方案",
+      "subtitle": "Isothermal Room Handling",
+      "cat": "render",
+      "year": "2020",
+      "desc": "等温间进出料方案的效果图表达。重点刻画货架单元、进出料机构与空间关系，通过多视角呈现设备在受限空间内的作业逻辑。",
+      "tags": [
+        "等温间",
+        "货架单元",
+        "多视角"
+      ],
+      "cover": "s12_05",
+      "images": [
+        "s12_05",
+        "s12_04",
+        "s12_03",
+        "s12_07",
+        "s12_02",
+        "s13_02",
+        "s13_03",
+        "s13_06",
+        "s13_07"
+      ],
+      "coverW": 1280,
+      "coverH": 1013
+    },
+    {
+      "id": "malaysia",
+      "title": "马来西亚项目立体库整体布局",
+      "subtitle": "Malaysia AS/RS Layout",
+      "cat": "render",
+      "year": "2020",
+      "desc": "立体库整体布局效果图。以俯视总图与局部细节结合的方式，表达库区规划、巷道关系、输送接驳与出入库流程。",
+      "tags": [
+        "总图规划",
+        "巷道关系",
+        "输送接驳"
+      ],
+      "cover": "s17_02",
+      "images": [
+        "s17_02",
+        "s17_03",
+        "s17_04",
+        "s17_05",
+        "s17_06",
+        "s16_03",
+        "s16_06",
+        "s17_09"
+      ],
+      "coverW": 1280,
+      "coverH": 719
+    },
+    {
+      "id": "nanjing-mint",
+      "title": "南京造币穿梭式货架监控界面",
+      "subtitle": "Nanjing Mint Monitoring UI",
+      "cat": "ui",
+      "year": "2020",
+      "desc": "参与南京造币厂穿梭式货架监控系统设计，并前往现场联调。界面以深色科技基调承载设备状态、库位信息与任务队列，兼顾大屏展示与现场操作两种使用场景。",
+      "tags": [
+        "深色界面",
+        "大屏可视化",
+        "现场联调"
+      ],
+      "cover": "s19_04",
+      "images": [
+        "s19_04",
+        "s19_05",
+        "s19_06",
+        "s19_03"
+      ],
+      "coverW": 1800,
+      "coverH": 1012
+    },
+    {
+      "id": "hengshui-ui",
+      "title": "衡水泡菜项目 AGV / 航车监控界面",
+      "subtitle": "Hengshui Pickle Project UI",
+      "cat": "ui",
+      "year": "2021",
+      "desc": "对接泡菜 AGV 多功能车与航车监控界面设计，把多条设备链路的运行状态收拢在一套界面语言里，保证现场人员在高节拍作业中的识别效率。",
+      "tags": [
+        "多设备接入",
+        "状态看板",
+        "界面规范"
+      ],
+      "cover": "s22_05",
+      "images": [
+        "s22_05",
+        "s22_06",
+        "s22_03",
+        "s22_04",
+        "s21_04",
+        "s21_05"
+      ],
+      "coverW": 1600,
+      "coverH": 900
+    },
+    {
+      "id": "paint-shop",
+      "title": "220 号厂涂装车间效果图",
+      "subtitle": "Paint Shop Rendering",
+      "cat": "render",
+      "year": "2021",
+      "desc": "涂装车间产线设备的效果图表达，通过干净的工业灰调与结构化的构图，呈现车间内的设备体量与通道关系。",
+      "tags": [
+        "车间场景",
+        "产线设备",
+        "灰调渲染"
+      ],
+      "cover": "s20_04",
+      "images": [
+        "s20_04",
+        "s20_05"
+      ],
+      "coverW": 1800,
+      "coverH": 1012
+    },
+    {
+      "id": "cad",
+      "title": "物流设备方案 CAD 绘制",
+      "subtitle": "CAD Layout Design",
+      "cat": "process",
+      "year": "2020",
+      "desc": "物流设备方案的二维图纸绘制与深化，包括设备排布、尺寸标注与接口关系，是三维建模与效果图表达的起点。",
+      "tags": [
+        "CAD 制图",
+        "设备排布",
+        "方案深化"
+      ],
+      "cover": "s23_04",
+      "images": [
+        "s23_04",
+        "s40_06",
+        "s32_07"
+      ],
+      "coverW": 1131,
+      "coverH": 562
+    },
+    {
+      "id": "gujing",
+      "title": "古井贡 RGV 外观设计与实物制作",
+      "subtitle": "Gujinggong RGV",
+      "cat": "agv",
+      "year": "2021",
+      "desc": "古井贡 RGV 外观设计并跟进实物制作。在防护罩、检修门与轨道行走机构之间寻找形态秩序，让设备在现场环境中既有存在感又不显突兀。",
+      "tags": [
+        "RGV",
+        "实物跟进",
+        "防护结构"
+      ],
+      "cover": "s24_04",
+      "images": [
+        "s24_04",
+        "s24_06",
+        "s24_07"
+      ],
+      "coverW": 1800,
+      "coverH": 1012
+    },
+    {
+      "id": "aerospace-kuka",
+      "title": "航天斯达 / KUKA AGV 效果图",
+      "subtitle": "Aerospace Star & KUKA AGV",
+      "cat": "render",
+      "year": "2021",
+      "desc": "两款 AGV 的产品级效果图表现，以控制光线与材质的方式突出车体的型面转折、功能分区与品牌识别。",
+      "tags": [
+        "产品渲染",
+        "材质表现",
+        "光影控制"
+      ],
+      "cover": "s25_05",
+      "images": [
+        "s25_05",
+        "s25_04"
+      ],
+      "coverW": 1800,
+      "coverH": 1012
+    },
+    {
+      "id": "huading-1-2",
+      "title": "华鼎一代 / 二代 AGV",
+      "subtitle": "Huading AGV Generation 1 & 2",
+      "cat": "agv",
+      "year": "2021",
+      "desc": "同一平台两代 AGV 的形态对照。二代在保持家族语言的同时收紧体量、简化分缝，让识别性与制造效率同时提升。",
+      "tags": [
+        "产品迭代",
+        "家族语言",
+        "体量控制"
+      ],
+      "cover": "s26_05",
+      "images": [
+        "s26_05",
+        "s26_06",
+        "s26_07"
+      ],
+      "coverW": 1800,
+      "coverH": 1012
+    },
+    {
+      "id": "swisslog-outdoor",
+      "title": "瑞士格室外背驮 AGV 设计",
+      "subtitle": "Outdoor Underride AGV",
+      "cat": "agv",
+      "year": "2022",
+      "desc": "面向室外工况的背驮式 AGV 设计，围绕防水、防尘与结构强度组织外形，形成低矮、稳定、易于维护的车体姿态。",
+      "tags": [
+        "室外工况",
+        "防护设计",
+        "低矮车身"
+      ],
+      "cover": "s27_05",
+      "images": [
+        "s27_05",
+        "s27_06"
+      ],
+      "pos": "center 86%",
+      "coverW": 800,
+      "coverH": 1422
+    },
+    {
+      "id": "belt-agv",
+      "title": "背驮 V 型皮带机 AGV 效果图",
+      "subtitle": "V-Belt Underride AGV",
+      "cat": "agv",
+      "year": "2022",
+      "desc": "背驮 V 型皮带机 AGV 的产品效果图，重点表达皮带机与车体的一体化关系，以及货物在 V 型槽内的定位方式。",
+      "tags": [
+        "一体化造型",
+        "皮带机",
+        "产品表现"
+      ],
+      "cover": "s28_05",
+      "images": [
+        "s28_05",
+        "s28_06"
+      ],
+      "coverW": 1800,
+      "coverH": 1011
+    },
+    {
+      "id": "multi-agv",
+      "title": "L12 / 东风子母车 / 思灵 AGV",
+      "subtitle": "Multi-model AGV Renderings",
+      "cat": "render",
+      "year": "2022",
+      "desc": "多个型号 AGV 的效果图集中呈现，覆盖重载、子母车与协作搬运等不同形态，保持统一的视觉品质与表现标准。",
+      "tags": [
+        "多型号",
+        "统一表现",
+        "重载搬运"
+      ],
+      "cover": "s29_05",
+      "images": [
+        "s29_05",
+        "s29_06",
+        "s29_07",
+        "s29_09"
+      ],
+      "coverW": 1800,
+      "coverH": 1012
+    },
+    {
+      "id": "self-chassis",
+      "title": "自制车体外观设计",
+      "subtitle": "In-house Chassis Design",
+      "cat": "agv",
+      "year": "2023",
+      "desc": "自制车体的外观设计，从底盘功能布局出发定义外壳的分型、折面与色彩，形成可复用、可扩展的车体设计语言。",
+      "tags": [
+        "车体设计",
+        "分型设计",
+        "设计语言"
+      ],
+      "cover": "s31_00",
+      "images": [
+        "s31_00",
+        "s31_06",
+        "s31_07",
+        "s31_08"
+      ],
+      "coverW": 1800,
+      "coverH": 1011
+    },
+    {
+      "id": "quzhou",
+      "title": "衢州方案效果示意",
+      "subtitle": "Quzhou Scheme",
+      "cat": "render",
+      "year": "2023",
+      "desc": "衢州项目的方案效果示意，用简明的场景构图快速表达设备配置与空间关系，服务于前期方案沟通。",
+      "tags": [
+        "方案示意",
+        "场景构图",
+        "快速表达"
+      ],
+      "cover": "s32_05",
+      "images": [
+        "s32_05",
+        "s32_06",
+        "s32_07"
+      ],
+      "coverW": 1800,
+      "coverH": 1012
+    },
+    {
+      "id": "handling",
+      "title": "搬运 / 顶升 AGV 车体系列",
+      "subtitle": "Handling & Lifting AGV Series",
+      "cat": "agv",
+      "year": "2023",
+      "desc": "面向搬运与顶升作业的车体系列设计，以统一的型面语言覆盖不同载荷与功能组合，兼顾造型识别与批量制造。",
+      "tags": [
+        "系列化",
+        "顶升机构",
+        "型面语言"
+      ],
+      "cover": "s33_00",
+      "images": [
+        "s33_00",
+        "s33_06",
+        "s33_07",
+        "s33_08",
+        "s34_04",
+        "s34_05",
+        "s34_06",
+        "s35_05",
+        "s35_04"
+      ],
+      "coverW": 1800,
+      "coverH": 1012
+    },
+    {
+      "id": "series",
+      "title": "多系列产品汇总效果图",
+      "subtitle": "Product Family Overview",
+      "cat": "render",
+      "year": "2024",
+      "desc": "把公司多系列 AGV 汇聚在同一张全家福中，统一比例、光位与材质，形成完整的产品家族视觉档案。",
+      "tags": [
+        "产品家族",
+        "全家福",
+        "视觉档案"
+      ],
+      "cover": "s36_01",
+      "images": [
+        "s36_01"
+      ],
+      "coverW": 1800,
+      "coverH": 1124
+    },
+    {
+      "id": "slim",
+      "title": "新型号 Slim 车外观设计方案",
+      "subtitle": "Slim AGV Concept",
+      "cat": "agv",
+      "year": "2024",
+      "desc": "新型号 Slim 车的外观设计方案，以极简的车身比例与克制的细节，回应通道受限场景对设备体量的要求。",
+      "tags": [
+        "窄体车",
+        "极简造型",
+        "方案设计"
+      ],
+      "cover": "s37_05",
+      "images": [
+        "s37_05",
+        "s37_06"
+      ],
+      "coverW": 1800,
+      "coverH": 1012
+    },
+    {
+      "id": "delan",
+      "title": "德缆项目效果图",
+      "subtitle": "Delan Project Rendering",
+      "cat": "render",
+      "year": "2024",
+      "desc": "德缆项目的场景效果图，在真实车间光环境下呈现设备与地面的关系，让方案汇报更具说服力。",
+      "tags": [
+        "车间环境",
+        "真实光感",
+        "方案汇报"
+      ],
+      "cover": "s37_07",
+      "images": [
+        "s37_07"
+      ],
+      "coverW": 1800,
+      "coverH": 1011
+    },
+    {
+      "id": "white-stacker",
+      "title": "白色堆高系列 AGV",
+      "subtitle": "White Stacker Series",
+      "cat": "agv",
+      "year": "2024",
+      "desc": "白色堆高系列 AGV 的外观设计，以大面积留白与克制的红色点缀建立清爽、专业的品牌形象。",
+      "tags": [
+        "堆高车",
+        "配色体系",
+        "品牌形象"
+      ],
+      "cover": "s38_01",
+      "images": [
+        "s38_01",
+        "s38_05",
+        "s38_06",
+        "s38_07"
+      ],
+      "coverW": 1800,
+      "coverH": 1012
+    },
+    {
+      "id": "omni",
+      "title": "全向底盘系列（灰）",
+      "subtitle": "Omnidirectional Chassis",
+      "cat": "agv",
+      "year": "2024",
+      "desc": "灰色全向底盘系列的外观设计，以整块折面与环形指示灯带塑造稳定、未来的产品气质，覆盖多种上装组合。",
+      "tags": [
+        "全向底盘",
+        "折面造型",
+        "指示灯带"
+      ],
+      "cover": "s39_00",
+      "images": [
+        "s39_00",
+        "s39_05",
+        "s39_06",
+        "s39_07",
+        "s39_08",
+        "s39_09"
+      ],
+      "coverW": 1800,
+      "coverH": 1011
+    },
+    {
+      "id": "assembly-line",
+      "title": "装配检测产线效果图",
+      "subtitle": "Assembly & Inspection Line",
+      "cat": "render",
+      "year": "2024",
+      "desc": "装配检测产线的效果图，表达工位布局、龙门结构与机器人与 AGV 的协同作业关系。",
+      "tags": [
+        "产线布局",
+        "人机协同",
+        "龙门结构"
+      ],
+      "cover": "s40_00",
+      "images": [
+        "s40_00",
+        "s40_05",
+        "s40_06"
+      ],
+      "coverW": 1800,
+      "coverH": 1012
+    }
+  ]
+};
