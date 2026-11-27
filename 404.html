@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>404 · 页面不在这里 | 王智 · 工业设计作品集</title>
+<meta name="robots" content="noindex" />
+<meta name="theme-color" content="#F4F3EF" />
+<link rel="icon" href="/portfolio/assets/favicon.svg" type="image/svg+xml" />
+<style>
+  :root{--paper:#F4F3EF;--ink:#14161A;--ink-2:#4C5059;--ink-3:#73777F;--red:#C8102E;--line:rgba(20,22,26,.13)}
+  *{box-sizing:border-box}
+  body{
+    margin:0;min-height:100vh;display:grid;place-items:center;background:var(--paper);color:var(--ink);
+    font-family:"PingFang SC","Source Han Sans SC","Microsoft YaHei",system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;position:relative;overflow:hidden;
+  }
+  body::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+    background-size:120px 120px;opacity:.35;
+    -webkit-mask-image:radial-gradient(circle at 50% 45%,#000 30%,transparent 78%);
+    mask-image:radial-gradient(circle at 50% 45%,#000 30%,transparent 78%);
+  }
+  main{position:relative;max-width:640px;padding:48px 28px;text-align:left}
+  .tag{display:inline-flex;align-items:center;gap:10px;font:11px/1 ui-monospace,Consolas,monospace;letter-spacing:.2em;color:var(--ink-3)}
+  .tag i{width:26px;height:1px;background:var(--red);display:block}
+  h1{font-size:clamp(3rem,10vw,5.5rem);line-height:1;margin:26px 0 0;font-weight:600;letter-spacing:-.02em}
+  h1 span{color:var(--red)}
+  p{color:var(--ink-2);font-size:16px;line-height:1.9;margin:24px 0 0;max-width:34em}
+  .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+  a.btn{
+    display:inline-flex;align-items:center;gap:8px;text-decoration:none;
+    padding:13px 24px;border-radius:100px;font-size:14px;letter-spacing:.04em;
+    border:1px solid var(--ink);background:var(--ink);color:var(--paper);
+    transition:transform .3s ease,background .3s ease;
+  }
+  a.btn:hover{transform:translateY(-2px);background:var(--red);border-color:var(--red)}
+  a.ghost{background:none;color:var(--ink);border-color:var(--line)}
+  a.ghost:hover{background:rgba(20,22,26,.04);color:var(--ink);border-color:var(--ink);transform:none}
+  footer{position:relative;margin-top:56px;font:10px/1.8 ui-monospace,Consolas,monospace;letter-spacing:.18em;color:var(--ink-3)}
+  .mark{position:absolute;width:14px;height:14px;border:1px solid var(--line)}
+  .mark--tl{top:24px;left:24px;border-right:0;border-bottom:0}
+  .mark--br{bottom:24px;right:24px;border-left:0;border-top:0}
+</style>
+</head>
+<body>
+<span class="mark mark--tl" aria-hidden="true"></span>
+<span class="mark mark--br" aria-hidden="true"></span>
+
+<main>
+  <span class="tag"><i></i>ERROR 404 / SHEET NOT FOUND</span>
+  <h1>这张图纸<br /><span>不在档案里。</span></h1>
+  <p>你打开的页面可能已经被移动、改名，或者链接本身少了一截。作品都还在原来的位置。</p>
+  <div class="actions">
+    <a class="btn" href="/portfolio/">回到作品集 <span aria-hidden="true">→</span></a>
+    <a class="btn ghost" href="/portfolio/#work">直接看作品</a>
+  </div>
+  <footer>WANG ZHI · INDUSTRIAL DESIGN PORTFOLIO · 2018—2024</footer>
+</main>
+</body>
+</html>

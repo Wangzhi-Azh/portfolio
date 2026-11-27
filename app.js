@@ -81,8 +81,14 @@
     heroImg.addEventListener('error', resolve, { once: true });
   });
   const fontsReady = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
-  const minShow = new Promise((r) => window.setTimeout(r, 320));
-  const hardCap = new Promise((r) => window.setTimeout(r, 2600));
+  // 首次访问给足品牌时间，同一会话回访不再折腾
+  let firstVisit = true;
+  try {
+    firstVisit = !window.sessionStorage.getItem('wz-seen');
+  } catch (err) { /* 隐私模式下忽略 */ }
+  const minMs = firstVisit ? 2200 : 450;
+  const minShow = new Promise((r) => window.setTimeout(r, minMs));
+  const hardCap = new Promise((r) => window.setTimeout(r, minMs + 2000));
 
   const dismissPreloader = () => {
     if (!preloader || preloader.dataset.done) return;
@@ -90,6 +96,7 @@
     document.body.classList.remove('is-loading');
     preloader.classList.add('is-done');
     window.setTimeout(() => preloader.remove(), 700);
+    try { window.sessionStorage.setItem('wz-seen', '1'); } catch (err) { /* 忽略 */ }
     startReveals();
   };
 
@@ -242,10 +249,20 @@
      --------------------------------------------------------- */
   const projectIndex = new Map(PROJECTS.map((p, i) => [p.id, i]));
 
+  const mediaStyle = (p) => {
+    const parts = [];
+    if (p.pos) parts.push(`object-position:${p.pos}`);
+    if (p.lqip) {
+      parts.push(`background-image:url('${p.lqip}')`);
+      parts.push('background-size:cover');
+      parts.push('background-position:center');
+    }
+    return parts.length ? ` style="${parts.join(';')}"` : '';
+  };
+
   const mediaAttrs = (p, src, cls) =>
     `src="${src}" alt="${p.title}" width="${p.coverW || 1600}" height="${p.coverH || 1200}" ` +
-    `class="${cls}" loading="lazy" decoding="async"` +
-    (p.pos ? ` style="object-position:${p.pos}"` : '');
+    `class="${cls}" loading="lazy" decoding="async"` + mediaStyle(p);
 
   const featuredEl = $('#featured');
   const feats = PROJECTS.filter((p) => p.featured);
