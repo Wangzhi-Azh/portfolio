@@ -27,9 +27,10 @@
   "knowsAbout": ["工业设计", "AGV 外观设计", "智能物流系统", "监控界面设计", "三维渲染"]
 }
 </script>
-<link rel="preload" as="image" href="assets/img/hero.webp" />
+<link rel="preload" as="image" href="assets/img/hero.webp" media="(min-width:901px)" />
+<link rel="preload" as="image" href="assets/img/hero-sm.webp" media="(max-width:900px)" />
 <link rel="preload" as="font" type="font/woff2" href="assets/fonts/mashan-subset.woff2" crossorigin />
-<link rel="stylesheet" href="styles.css?v=28" />
+<link rel="stylesheet" href="styles.css?v=29" />
 </head>
 <body>
 
@@ -80,7 +81,10 @@
     <div class="hero__visual">
       <div class="hero__ruler" aria-hidden="true"></div>
       <div class="hero__frame reveal">
-        <img src="assets/img/hero.webp" alt="多系列 AGV 产品家族效果图" fetchpriority="high" />
+        <picture>
+          <source media="(max-width:900px)" srcset="assets/img/hero-sm.webp" />
+          <img src="assets/img/hero.webp" alt="多系列 AGV 产品家族效果图" fetchpriority="high" />
+        </picture>
         <span class="hero__frameTag">Product Family / 2024</span>
         <span class="tick tick--tl" aria-hidden="true"></span>
         <span class="tick tick--bl" aria-hidden="true"></span>
@@ -424,7 +428,7 @@
   </div>
 </noscript>
 
-<script src="data.js?v=28" defer></script>
-<script src="app.js?v=28" defer></script>
+<script src="data.js?v=29" defer></script>
+<script src="app.js?v=29" defer></script>
 </body>
 </html>

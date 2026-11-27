@@ -136,7 +136,10 @@
         <article class="feat reveal" data-project="${p.id}">
           <div class="feat__media"${ratio} role="button" tabindex="0"
                aria-haspopup="dialog" aria-label="打开 ${p.title} 图集，共 ${p.images.length} 张">
-            <img ${mediaAttrs(p, imgUrl(p.cover), 'feat__img')} />
+            <picture>
+              <source media="(max-width:900px)" srcset="${imgUrl(p.cover + '-sm')}" />
+              <img ${mediaAttrs(p, imgUrl(p.cover), 'feat__img')} />
+            </picture>
             <span class="feat__num">${pad(i + 1)} / ${pad(feats.length)}</span>
           </div>
           <div class="feat__body">
